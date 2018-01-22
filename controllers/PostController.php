@@ -21,6 +21,17 @@ class PostController extends AppController {
         ]);
     }
     
+    public function actionView()
+    {
+        $id = \Yii::$app->request->get('id');
+        $post = Post::findOne($id);
+        if(empty($post)) throw new \yii\web\HttpException(404, 'Такой страницы нет!');
+        
+        return $this->render('view', [
+            'post' => $post,
+        ]);
+    }
+    
     public function actionTest()
     {
         $test = "Hello Test!";
