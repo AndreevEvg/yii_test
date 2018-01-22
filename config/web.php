@@ -53,6 +53,8 @@ $config = [
 //                'test' => 'post/test',
 //                '<action>' => 'post/<action>',
                 'post/<id:\d+>' => 'post/view',
+                'page/<page:\d+>' => 'post/index',
+                '/' => 'post/index',
             ],
         ],
         
