@@ -31,13 +31,5 @@ class PostController extends AppController {
             'post' => $post,
         ]);
     }
-    
-    public function actionTest()
-    {
-        $test = "Hello Test!";
-        
-        return $this->render('test', [
-            'test' => $test,
-        ]);
-    }
+   
 }
