@@ -32,4 +32,12 @@ class PostController extends AppController {
         ]);
     }
    
+    public function actionTest()
+    {
+        $test = "Hello Test!";
+        
+        return $this->render('test', [
+            'test' => $test,
+        ]);
+    }
 }

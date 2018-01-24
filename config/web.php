@@ -60,6 +60,7 @@ $config = [
 //                '<action>' => 'post/<action>',
                 'post/<id:\d+>' => 'post/view',
                 'page/<page:\d+>' => 'post/index',
+                'test' => 'post/test',
                 '/' => 'post/index',
             ],
         ],
