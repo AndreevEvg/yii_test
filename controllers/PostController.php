@@ -2,13 +2,30 @@
 
 namespace app\controllers;
 
+use Yii;
 use app\models\Post;
 
-class PostController extends AppController {
+class PostController extends AppController
+{
+    public $layout = 'basic';
+    
+    public function beforeAction($action) 
+    {
+        if($action->id == 'index'){
+            $this->enableCsrfValidation = false;
+        }
+        
+        return parent::beforeAction($action);
+    }
     
     public function actionIndex()
     {   
         //$posts = Post::find()->select('id, title, excerpt')->orderBy('id DESC')->all();
+        
+        if(Yii::$app->request->isAjax){
+            debug(Yii::$app->request->post());
+            return 'test';
+        }
         
         //Пагинация постов
         $query = Post::find()->select('id, title, excerpt')->orderBy('id DESC');
@@ -23,6 +40,8 @@ class PostController extends AppController {
     
     public function actionView()
     {
+        $this->layout = 'main';
+        
         $id = \Yii::$app->request->get('id');
         $post = Post::findOne($id);
         if(empty($post)) throw new \yii\web\HttpException(404, 'Такой страницы нет!');
@@ -34,10 +53,25 @@ class PostController extends AppController {
    
     public function actionTest()
     {
-        $test = "Hello Test!";
+        $var = "Hello World!";
+        $names = ['John', 'Mike', 'Vasya', 'Ivan'];
         
         return $this->render('test', [
-            'test' => $test,
+            'var' => $var,
+            'names' => $names,
+        ]);
+    }
+    
+    public function actionShow()
+    {
+        $this->view->title = 'Одна статья';
+        $this->view->registerMetaTag(['name' => 'keywords', 'content' => 'ключевики...']);
+        $this->view->registerMetaTag(['name' => 'description', 'content' => 'описание страницы...']);
+        
+        $show = 'Action Show';
+        
+        return $this->render('show', [
+            'show' => $show,
         ]);
     }
 }
