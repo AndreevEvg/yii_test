@@ -33,6 +33,9 @@ AppAsset::register($this);
                         <?= Html::a('Статья', ['show']) ?>
                     </li>
                     <li class="nav-item">
+                        <?= Html::a('Контакты', ['test']) ?>
+                    </li>
+                    <li class="nav-item">
                         <?= Html::a('Выход', 'site/index') ?>
                     </li>
                 </ul>

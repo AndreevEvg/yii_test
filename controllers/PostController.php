@@ -4,6 +4,7 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Post;
+use app\models\TestForm;
 
 class PostController extends AppController
 {
@@ -56,9 +57,12 @@ class PostController extends AppController
         $var = "Hello World!";
         $names = ['John', 'Mike', 'Vasya', 'Ivan'];
         
+        $model = new TestForm();
+        
         return $this->render('test', [
             'var' => $var,
             'names' => $names,
+            'model' => $model,
         ]);
     }
     
