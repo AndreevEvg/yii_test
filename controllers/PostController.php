@@ -43,7 +43,7 @@ class PostController extends AppController
     {
         $this->layout = 'main';
         
-        $id = \Yii::$app->request->get('id');
+        $id = Yii::$app->request->get('id');
         $post = Post::findOne($id);
         if(empty($post)) throw new \yii\web\HttpException(404, 'Такой страницы нет!');
         
@@ -53,15 +53,26 @@ class PostController extends AppController
     }
    
     public function actionTest()
-    {
-        $var = "Hello World!";
-        $names = ['John', 'Mike', 'Vasya', 'Ivan'];
+    {   
+        $var = 'Hello Test';
+        $arr = ['Иванов', 'Петров', 'Сидоров'];
         
         $model = new TestForm();
         
+        
+        if($model->load(Yii::$app->request->post())){
+            if($model->validate()){
+                Yii::$app->session->setFlash('contactFormSubmitted');
+                return $this->refresh();
+            }else{
+                Yii::$app->session->setFlash('contactFormError');
+            }
+                     
+        }
+        
         return $this->render('test', [
             'var' => $var,
-            'names' => $names,
+            'arr' => $arr,
             'model' => $model,
         ]);
     }

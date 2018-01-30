@@ -27,6 +27,7 @@ class TestForm extends Model
 
             // атрибут email указывает, что в переменной email должен быть корректный адрес электронной почты
             ['email', 'email'],
+            
             ['name', 'string', 'min' => 2],
             ['text', 'trim'],
         ];
