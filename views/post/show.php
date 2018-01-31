@@ -9,9 +9,24 @@ $this->registerJsFile('@web/js/scripts.js', ['depends' => 'yii\web\YiiAsset']);
     <h1>Заголовок страницы</h1>
 <?php $this->endBlock(); ?>
 
-<h1><?= Html::encode($show) ?></h1>
 <button id="btn" class="btn btn-success">Click me...</button>
+<br><br>
 
+
+<?php
+echo '<ul class="list-group">';
+foreach($cats as $cat){
+    echo '<li class="list-group-item">' . $cat->title . '</li>';
+    $products = $cat->products;
+    foreach($products as $product){
+        echo '<ul>';
+            echo '<li>' . $product->title . '</li>';
+        echo '</ul>';
+    }
+}
+echo '</ul>';
+?>
+    
 <?php
 $script = <<< JS
 $('#btn').on('click', function(e) {

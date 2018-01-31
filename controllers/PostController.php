@@ -5,6 +5,7 @@ namespace app\controllers;
 use Yii;
 use app\models\Post;
 use app\models\TestForm;
+use app\models\Category;
 
 class PostController extends AppController
 {
@@ -58,10 +59,13 @@ class PostController extends AppController
         $arr = ['Иванов', 'Петров', 'Сидоров'];
         
         $model = new TestForm();
-        
+//        $model->name = 'Автор';
+//        $model->email = 'mail@mail.ru';
+//        $model->text = 'Текст сообщения';
+//        $model->save();
         
         if($model->load(Yii::$app->request->post())){
-            if($model->validate()){
+            if($model->save()){
                 Yii::$app->session->setFlash('contactFormSubmitted');
                 return $this->refresh();
             }else{
@@ -81,12 +85,19 @@ class PostController extends AppController
     {
         $this->view->title = 'Одна статья';
         $this->view->registerMetaTag(['name' => 'keywords', 'content' => 'ключевики...']);
-        $this->view->registerMetaTag(['name' => 'description', 'content' => 'описание страницы...']);
+        $this->view->registerMetaTag(['name' => 'description', 'content' => 'описание страницы...']);    
         
-        $show = 'Action Show';
+//        $cats = Category::find()->asArray()->where(['parent' => 691])->all();
+//        $cats = Category::find()->asArray()->where(['like', 'title', 'pp'])->all();
+//        $cats = Category::find()->asArray()->where(['<=', 'id', 695])->all();
+//        $cats = Category::find()->asArray()->where(['parent' => 691])->limit(1)->all();
+//        $cats = Category::find()->asArray()->all();
+//        
+//        $cats = Category::find()->all(); // отложенная загрузка
+        $cats = Category::find()->with('products')->all(); // жадная загрузка
         
         return $this->render('show', [
-            'show' => $show,
+            'cats' => $cats,
         ]);
     }
 }

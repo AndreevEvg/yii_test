@@ -2,13 +2,14 @@
 
 namespace app\models;
 
-use yii\base\Model;
+use yii\db\ActiveRecord;
 
-class TestForm extends Model
+class TestForm extends ActiveRecord
 {
-    public $name;
-    public $email;
-    public $text;
+    public static function tableName() {
+        parent::tableName();
+        return 'contacts';
+    }
     
     public function attributeLabels()
     {
@@ -23,7 +24,7 @@ class TestForm extends Model
     {
         return [
             // атрибут required указывает, что name, email, subject, body обязательны для заполнения
-            [['name', 'email'], 'required'],
+            [['name', 'text'], 'required'],
 
             // атрибут email указывает, что в переменной email должен быть корректный адрес электронной почты
             ['email', 'email'],
