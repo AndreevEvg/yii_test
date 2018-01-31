@@ -26,6 +26,7 @@ use yii\widgets\ActiveForm;
 <?php $form = ActiveForm::begin(['options' => ['id' => 'testForm']]); ?>
     <?= $form->field($model, 'name') ?>
     <?= $form->field($model, 'email') ?>
+    <?= yii\jui\DatePicker::widget(['name' => 'attributeName']) ?>
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
     <div class="form-group">
         <?= Html::submitButton('Отправить', ['class' => 'btn btn-success', 'name' => 'contact-button']) ?>

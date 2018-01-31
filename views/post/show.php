@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use app\components\MyWidget;
 
 //$this->title = 'Одна статья';
 $this->registerJsFile('@web/js/scripts.js', ['depends' => 'yii\web\YiiAsset']);
@@ -12,19 +13,20 @@ $this->registerJsFile('@web/js/scripts.js', ['depends' => 'yii\web\YiiAsset']);
 <button id="btn" class="btn btn-success">Click me...</button>
 <br><br>
 
+<?= MyWidget::widget(['name' => 'Вася']); ?>
 
 <?php
-echo '<ul class="list-group">';
-foreach($cats as $cat){
-    echo '<li class="list-group-item">' . $cat->title . '</li>';
-    $products = $cat->products;
-    foreach($products as $product){
-        echo '<ul>';
-            echo '<li>' . $product->title . '</li>';
-        echo '</ul>';
-    }
-}
-echo '</ul>';
+//echo '<ul class="list-group">';
+//foreach($cats as $cat){
+//    echo '<li class="list-group-item">' . $cat->title . '</li>';
+//    $products = $cat->products;
+//    foreach($products as $product){
+//        echo '<ul>';
+//            echo '<li>' . $product->title . '</li>';
+//        echo '</ul>';
+//    }
+//}
+//echo '</ul>';
 ?>
     
 <?php
