@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "35dd12bcabdfc8794a614b71a5746f03",
+    "content-hash": "024acc69b03f708519c49d5fb87a6413",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -289,6 +289,46 @@
                 "mailer"
             ],
             "time": "2017-05-01T15:54:03+00:00"
+        },
+        {
+            "name": "wadeshuler/yii2-ckeditor-cdn",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WadeShuler/yii2-ckeditor-cdn.git",
+                "reference": "86fc388023fc8f4f2be13fcd0da7410b1375386b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WadeShuler/yii2-ckeditor-cdn/zipball/86fc388023fc8f4f2be13fcd0da7410b1375386b",
+                "reference": "86fc388023fc8f4f2be13fcd0da7410b1375386b",
+                "shasum": ""
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "wadeshuler\\ckeditor\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Wade Shuler",
+                    "email": "wadeshuler@users.noreply.github.com"
+                }
+            ],
+            "description": "My restriction free version of a CKEditor CDN extension for Yii2",
+            "keywords": [
+                "CKEditor",
+                "cdn",
+                "extension",
+                "widget",
+                "yii2"
+            ],
+            "time": "2016-08-21T05:12:36+00:00"
         },
         {
             "name": "yiisoft/yii2",

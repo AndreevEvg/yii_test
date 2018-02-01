@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use wadeshuler\ckeditor\widgets\CKEditor;
 ?>
 
 <h2><?= Html::encode($var) ?></h2>
@@ -26,7 +27,8 @@ use yii\widgets\ActiveForm;
 <?php $form = ActiveForm::begin(['options' => ['id' => 'testForm']]); ?>
     <?= $form->field($model, 'name') ?>
     <?= $form->field($model, 'email') ?>
-    <?= yii\jui\DatePicker::widget(['name' => 'attributeName']) ?>
+    <?php //echo yii\jui\DatePicker::widget(['name' => 'attributeName']) ?>
+    <?php //echo $form->field($model, 'text')->widget(CKEditor::className()) ?>
     <?= $form->field($model, 'text')->textarea(['rows' => 6]) ?>
     <div class="form-group">
         <?= Html::submitButton('Отправить', ['class' => 'btn btn-success', 'name' => 'contact-button']) ?>

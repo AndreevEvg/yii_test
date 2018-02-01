@@ -15,6 +15,9 @@ $config = [
             'class' => 'app\modules\admin\Module',
             'defaultRoute' => 'post/index',
         ],
+        'ckeditor' => [
+            'class' => 'wadeshuler\ckeditor\Module',
+        ],
     ],
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
@@ -59,6 +62,7 @@ $config = [
             'showScriptName' => false,
             'rules' => [
 //                'test' => 'post/test',
+                '<action(about|contact|login)>' => 'site/<action>',
 //                '<action>' => 'post/<action>',
                 'post/<id:\d+>' => 'post/view',
                 'show' => 'post/show',
