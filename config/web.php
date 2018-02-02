@@ -61,6 +61,11 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                [
+                    'pattern' => '',
+                    'route' => 'post/index',
+                    'suffix' => ''
+                ],
 //                'test' => 'post/test',
                 '<action(about|contact|login)>' => 'site/<action>',
 //                '<action>' => 'post/<action>',
