@@ -42,7 +42,7 @@ class PostController extends AppController
     
     public function actionView()
     {
-        $this->layout = 'main';
+        $this->layout = 'main!';
         
         $id = Yii::$app->request->get('id');
         $post = Post::findOne($id);
